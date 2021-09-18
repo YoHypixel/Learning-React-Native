@@ -2,61 +2,33 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, Button} from 'react-native';
 
-const button = () => {
-  alert('button Pressed')
-}
 
 
 const App = () => {
 
-  
-  const button = () => {
-    alert('button Pressed')
-  }
-  const [num2, SetNum2] = useState(0)
-  const [num1, SetNum1] = useState(0);
-  const [text, setText] = useState('');
-  const [total, SetTotal] = useState(num1 + num2);
+const [number, SetNumber] = useState("");
+const [number2, SetNumber2] = useState("");
+const [test, SetTest] = useState("")
 
-
-    const test = () => {
-    const total1 = num1 + num2;
-    SetTotal(total1) 
-  }
+const testlol = () => {
+  alert(parseInt(number) + parseInt(number2))
+}
 
   return (
     <View style={styles.container}>
       <StatusBar style="dark" />
-      <Button onPress={button} title="Wow"/>
+     
+        <Text>test</Text>
+        <Button 
 
-      <Text>Caden's React Native Project</Text>
-      <TextInput 
-
-      keyboardType='number-pad'
-      style={{height: 40, padding: 10}} 
-      placeholder="Type Here"
-      onChangeText={text1 => setText(text1)}
-      defaultValue={text}
-      />
-      <Text style={{padding: 10, fontSize: 12}}> 
-        {text}
-      </Text>
-
-      <Text>Test number 1</Text>
-      <TextInput keyboardType='number-pad' placeholder = "test"
-      placeholder = "test1" 
-      onChange={num1 => SetNum1(parceInt(num1))}
-      defaultValue={num1}/>      
-      
-      <Text>Test number 2</Text>
-      <TextInput keyboardType='number-pad' placeholder = "test2" 
-      onChange={num2 => SetNum2(parceInt(num2))}
-      defaultValue={num2}
-      />
-
-      <Button onPress={test} title="WOWZA"/>
-
-      <Text>{total}</Text>
+        onPress={testlol}
+        title="test"
+        />
+        <Text>Number 1</Text>
+        <TextInput defaultValue="0" keyboardType='number-pad' onChangeText={text => SetNumber(text)}/>        
+        
+        <Text>Number 2</Text>
+        <TextInput defaultValue="0" keyboardType='number-pad' onChangeText={text => SetNumber2(text)}/>
 
     </View>
   );
