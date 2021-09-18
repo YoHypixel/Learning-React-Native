@@ -8,29 +8,56 @@ const button = () => {
 
 
 const App = () => {
+
+  
+  const button = () => {
+    alert('button Pressed')
+  }
+  const [num2, SetNum2] = useState(0)
+  const [num1, SetNum1] = useState(0);
   const [text, setText] = useState('');
+  const [total, SetTotal] = useState(num1 + num2);
+
+
+    const test = () => {
+    const total1 = num1 + num2;
+    SetTotal(total1) 
+  }
+
   return (
     <View style={styles.container}>
+      <StatusBar style="dark" />
       <Button onPress={button} title="Wow"/>
 
       <Text>Caden's React Native Project</Text>
       <TextInput 
 
-      keyboardType='email-address'
+      keyboardType='number-pad'
       style={{height: 40, padding: 10}} 
       placeholder="Type Here"
-      onChangeText={text => setText(text)}
+      onChangeText={text1 => setText(text1)}
       defaultValue={text}
-
       />
-
-      <Text style={{padding: 10, fontSize: 42}}> 
-      
-        {1+1}
-
+      <Text style={{padding: 10, fontSize: 12}}> 
+        {text}
       </Text>
 
-      <StatusBar style="dark" />
+      <Text>Test number 1</Text>
+      <TextInput keyboardType='number-pad' placeholder = "test"
+      placeholder = "test1" 
+      onChange={num1 => SetNum1(parceInt(num1))}
+      defaultValue={num1}/>      
+      
+      <Text>Test number 2</Text>
+      <TextInput keyboardType='number-pad' placeholder = "test2" 
+      onChange={num2 => SetNum2(parceInt(num2))}
+      defaultValue={num2}
+      />
+
+      <Button onPress={test} title="WOWZA"/>
+
+      <Text>{total}</Text>
+
     </View>
   );
 }
