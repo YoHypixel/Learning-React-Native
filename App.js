@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, Button, Keyboard, TouchableWithoutFeedback} from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button, Keyboard, TouchableWithoutFeedback, SafeAreaView} from 'react-native';
 
 
 
@@ -8,58 +8,40 @@ import { StyleSheet, Text, View, TextInput, Button, Keyboard, TouchableWithoutFe
 
 const App = () => {
 
-const [number, SetNumber] = useState("");
-const [number2, SetNumber2] = useState("");
-const [test, SetTest] = useState("")
-
-const Alert = () => {
-  alert(parseInt(number) + parseInt(number2))
-  Keyboard.dismiss()
-}
-
-const DismissKeyboard = ({ children }) => (
-
-  <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-    {children}
-  </TouchableWithoutFeedback>
-);
+  const [number0, SetNumber0] = useState("")
+  const [number1, SetNumber1] = useState("")
 
   return (
-    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
     <View style={styles.container}>
+      
+      <Text style={{padding:10}}>Number 1</Text>
+      
+      <TextInput 
 
-      <StatusBar style="dark" />
-     
-        <Text>test</Text>
-        <Button 
-
-        onPress={Alert}
-        title="test"
-        />
-        <Text>Number 1</Text>
-        <TextInput 
-
-        defaultValue="0" 
-        keyboardType='number-pad' 
-        onChangeText={text => SetNumber(text)}
+        onChange = {text => SetNumber0(text)}
+        defaultValue='Number 1 Input'
+        style={{padding:10}}
+        keyboardType='number-pad'
+        returnKeyLabel='Fuck'
+        returnKeyType='done'
         clearTextOnFocus={true}
-        onEndEditing={Keyboard.dismiss()}
 
-        />        
-        
-        <Text>Number 2</Text>
-        <TextInput 
-        
-        defaultValue="0" 
-        keyboardType='number-pad' 
-        onChangeText={text => SetNumber2(text)}
+      />
+      <Text style={{padding:10}}>Number 2</Text>
+      
+      <TextInput 
+
+        onChange = {text => SetNumber2(text)}
+        defaultValue='Number 1 Input'
+        style={{padding:10}}
+        keyboardType='number-pad'
+        returnKeyLabel='Fuck'
+        returnKeyType='done'
         clearTextOnFocus={true}
-        onEndEditing={Keyboard.dismiss()}
 
-        />
+      />
 
     </View>
-</TouchableWithoutFeedback>
   );
 }
 export default App
